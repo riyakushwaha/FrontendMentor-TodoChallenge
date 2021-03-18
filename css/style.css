@@ -1,0 +1,73 @@
+.u-mb-large {
+  margin-bottom: 5rem; }
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit; }
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; }
+
+body {
+  background-color: #161722;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 1.8rem;
+  color: #cacde8; }
+
+.header {
+  width: 100vw;
+  height: 20vw;
+  background-image: url(../images/bg-desktop-dark.jpg);
+  background-size: cover;
+  position: absolute;
+  top: 0; }
+
+.container {
+  margin: 10rem auto;
+  background-color: transparent;
+  width: 40%; }
+
+.app {
+  display: flex;
+  justify-content: space-between; }
+  .app__name {
+    font-weight: 700;
+    font-size: 4rem;
+    letter-spacing: 1rem; }
+  .app__input-field {
+    margin-bottom: 3rem; }
+
+.field {
+  display: flex;
+  align-items: center;
+  background-color: #25273c;
+  padding: 2.5rem;
+  border-radius: 3px; }
+  .field__checkbox--input {
+    opacity: 0; }
+  .field__checkbox {
+    height: 2.5rem;
+    width: 2.5rem;
+    display: block;
+    border: 3px solid #e4e5f1;
+    border-radius: 50%;
+    margin-right: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .field__checkbox:hover {
+      cursor: pointer; }
+  .field__icon-check {
+    display: block;
+    opacity: 0; }
+  .field__checkbox--input:checked ~ .field__label .field__checkbox {
+    border: none;
+    background-image: linear-gradient(#57ddff, #c058f3); }
+  .field__checkbox--input:checked ~ .field__label .field__icon-check {
+    opacity: 1; }
+  .field__checkbox--input:checked ~ .field__content {
+    text-decoration: line-through; }

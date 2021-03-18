@@ -1,0 +1,122 @@
+// - Very Dark Blue: hsl(235, 21%, 11%)
+// - Very Dark Desaturated Blue: hsl(235, 24%, 19%)
+// - Light Grayish Blue: hsl(234, 39%, 85%)
+// - Light Grayish Blue (hover): hsl(236, 33%, 92%)
+// - Dark Grayish Blue: hsl(234, 11%, 52%)
+// - Very Dark Grayish Blue: hsl(233, 14%, 35%)
+// - Very Dark Grayish Blue: hsl(237, 14%, 26%)
+
+// - Very Light Gray: hsl(0, 0%, 98%)
+// - Very Light Grayish Blue: hsl(236, 33%, 92%)
+// - Light Grayish Blue: hsl(233, 11%, 84%)
+// - Dark Grayish Blue: hsl(236, 9%, 61%)
+// - Very Dark Grayish Blue: hsl(235, 19%, 35%)
+
+
+//VARIABLES
+$color-dark-blue: hsl(235, 21%, 11%);
+$color-desaturated-blue: hsl(235, 24%, 19%);
+$color-text: hsl(234, 39%, 85%);
+
+// UTILITY CLASSES
+.u-mb-large{
+    margin-bottom: 5rem;
+}
+
+//MAIN STYLING
+*,
+*::before,
+*::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+}
+
+html{
+    box-sizing: border-box;
+    font-size: 62.5%; // 1rem = 10px
+}
+
+body{
+    background-color: $color-dark-blue;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.8rem;
+    color: $color-text;
+}
+
+.header{
+    width: 100vw;
+    height: 20vw;
+    background-image: url(../images/bg-desktop-dark.jpg);
+    background-size: cover;
+    position: absolute;
+    top: 0;
+}
+
+.container{
+    margin: 10rem auto;
+    background-color: transparent;
+    width: 40%; 
+}
+
+.app{
+    display: flex;
+    justify-content: space-between;
+
+    &__name{
+        font-weight: 700;
+        font-size: 4rem;
+        letter-spacing: 1rem;
+    }
+
+    &__input-field{
+        margin-bottom: 3rem;
+    }
+}
+
+.field{
+    display: flex;
+    align-items: center;
+    background-color: $color-desaturated-blue;
+    padding: 2.5rem;
+    border-radius: 3px;
+
+    &__checkbox--input{
+        opacity: 0;
+    }
+
+    &__checkbox{
+        height: 2.5rem;
+        width: 2.5rem;
+        display: block;
+        border: 3px solid hsl(236, 33%, 92%);
+        border-radius: 50%;
+        margin-right: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:hover{   
+            cursor: pointer;
+        }
+    }
+
+    &__icon-check{
+        display: block;
+        opacity: 0;
+    }
+
+    &__checkbox--input:checked ~ &__label &__checkbox{
+        border: none;
+        background-image: linear-gradient(hsl(192, 100%, 67%) , hsl(280, 87%, 65%));
+    }
+
+    &__checkbox--input:checked ~ &__label &__icon-check{
+        opacity: 1;
+    }
+
+    &__checkbox--input:checked ~  &__content{
+        text-decoration: line-through;
+    }
+
+}
