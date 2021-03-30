@@ -1,23 +1,22 @@
+//VARIABLES- DARK MODE
+// $color-dark-blue: hsl(235, 21%, 11%);
+// $color-desaturated-blue: hsl(235, 24%, 19%);
+// $color-light-grayish-blue: hsl(234, 39%, 85%);
+// $color-grayish-blue: hsl(236, 33%, 92%);
+// $color-dark-grayish-blue: hsl(234, 11%, 52%);
+// $color-vdark-grayish-blue: hsl(233, 14%, 35%);
+// $color-vvdark-grayish-blue: hsl(237, 14%, 26%);
 
-// - Very Light Gray: hsl(0, 0%, 98%)
-// - Very Light Grayish Blue: hsl(236, 33%, 92%)
-// - Light Grayish Blue: hsl(233, 11%, 84%)
-// - Dark Grayish Blue: hsl(236, 9%, 61%)
-// - Very Dark Grayish Blue: hsl(235, 19%, 35%)
-
-
-//VARIABLES
-$color-dark-blue: hsl(235, 21%, 11%);
-$color-desaturated-blue: hsl(235, 24%, 19%);
-$color-light-grayish-blue: hsl(234, 39%, 85%);
-$color-grayish-blue: hsl(236, 33%, 92%);
-$color-dark-grayish-blue: hsl(234, 11%, 52%);
-$color-vdark-grayish-blue: hsl(233, 14%, 35%);
-$color-vvdark-grayish-blue: hsl(237, 14%, 26%);
+// //light theme colours
+// $color-very-Light-Gray:  hsl(0, 0%, 98%);
+// $color-very-Light-Grayish-Blue: hsl(236, 33%, 92%);
+// $color-light-Grayish-Blue: hsl(233, 11%, 84%);
+// $color-dark-Grayish-Blue: hsl(236, 9%, 61%);
+// $color-very-Dark-Grayish-Blue: hsl(235, 19%, 35%);
 
 // UTILITY CLASSES
 .u-mb-large{
-    margin-bottom: 5rem;
+    margin-bottom: 4rem;
 }
 
 //MAIN STYLING
@@ -31,29 +30,57 @@ $color-vvdark-grayish-blue: hsl(237, 14%, 26%);
 
 html{
     box-sizing: border-box;
-    font-size: 62.5%; // 1rem = 10px
+    font-size: 62.5%; // 1rem = 10px   
+}
+
+html[data-theme="light"]{
+    // VARIABLES - Light Theme
+    --bg-image: url(../images/bg-desktop-light.jpg);
+    --field-color: hsl(0, 0%, 98%); // $color-very-Light-Gray;
+
+    --bg-color: hsl(236, 33%, 92%); // $color-very-Light-Grayish-Blue;
+    --text-color-light: hsl(235, 19%, 35%); //$color-light-Grayish-Blue; //list items
+    --text-color-dark: hsl(236, 9%, 61%); //$color-dark-Grayish-Blue; //tabs, line -through
+    --hover-color: hsl(235, 19%, 35%);
+    --checkbox-border: hsl(236, 33%, 92%);
+}
+
+html[data-theme="dark"]{
+
+    // Variables: Dark Theme
+    --bg-image: url(../images/bg-desktop-dark.jpg);
+    --bg-color: hsl(235, 21%, 11%); //$color-dark-blue
+
+    --field-color: hsl(235, 24%, 19%); // $color-desaturated-blue;
+    --text-color-light: hsl(234, 39%, 85%); //$color-light-grayish-blue; //list items
+    --text-color-dark:  hsl(234, 11%, 52%); //$color-dark-grayish-blue; //tabs, line -through
+    --hover-color: hsl(0, 0%, 98%);
+    --checkbox-border: hsl(233, 14%, 35%);
 }
 
 body{
-    background-color: $color-dark-blue;
+    background-color: var(--bg-color);
     font-family: 'Josefin Sans', sans-serif;
     font-size: 1.8rem;
-    color: $color-light-grayish-blue;
+    color: var(--text-color-light);
 }
 
 .header{
     width: 100vw;
     height: 20vw;
-    background-image: url(../images/bg-desktop-dark.jpg);
+    background-image: var(--bg-image);
     background-size: cover;
     position: absolute;
     top: 0;
+    z-index: -10;
 }
 
 .container{
     margin: 10rem auto;
     background-color: transparent;
-    width: 40%; 
+    width: 33%; 
+    position: relative;
+    z-index: 10;
 }
 
 .app{
@@ -75,17 +102,24 @@ body{
 
     &__text{
         text-align: center;
-        font-size: 1rem;
-        margin: 4rem auto;
+        font-size: 1.5rem;
+        margin: 5rem auto;
+        color: var(--text-color-dark);
     }
+
+    &__checkbox--input{
+        opacity: 0;
+    }
+
 }
 
 .field{
     display: flex;
     align-items: center;
-    background-color: $color-desaturated-blue;
-    padding: 2.5rem;
-    
+    background-color: var(--field-color);
+    padding: 2.25rem;
+    position: relative;
+    z-index: 12;
 
     &__checkbox--input{
         opacity: 0;
@@ -95,7 +129,7 @@ body{
         height: 2.5rem;
         width: 2.5rem;
         display: block;
-        border: 3px solid hsl(236, 33%, 92%);
+        border: 2px solid hsl(233, 14%, 35%); //$color-vdark-grayish-blue;
         border-radius: 50%;
         margin-right: 2rem;
         display: flex;
@@ -104,6 +138,7 @@ body{
 
         &:hover{   
             cursor: pointer;
+            border: 2px solid linear-gradient(hsl(192, 100%, 67%) , hsl(280, 87%, 65%));
         }
     }
 
@@ -123,11 +158,26 @@ body{
 
     &__checkbox--input:checked ~  &__content{
         text-decoration: line-through;
-        color: $color-dark-grayish-blue;
+        color: var(--text-color-dark);
     }
 
     &__content{
         margin-right: auto;
+
+        &--input{
+            background-color: transparent;
+            border: none;
+            width: 100%;
+            caret-color: rgba(0, 0, 255, 0.664);
+            height: 3rem;
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 1.8rem;
+            color: var(--text-color-dark);
+
+            &:focus{
+                outline: none;
+            }
+        }
     }
 
     &:hover > img{
@@ -154,14 +204,14 @@ body{
     border-bottom-left-radius: .5rem;
     border-bottom-right-radius: .5rem;
     font-size: 1.5rem;
-    color: $color-dark-grayish-blue;
+    color: var(--text-color-dark);
 
     &__tab{
         display: flex;
         justify-content: space-evenly;
 
         & > *:hover{
-            color: hsl(0, 0%, 98%);
+            color: var(--hover-color);
             cursor: pointer;
         }
 
@@ -169,6 +219,11 @@ body{
             margin: 0 2rem;
         }
 
+    }
+
+    &__left:hover, &__delete:hover{
+        color: var(--hover-color);
+        cursor: pointer;
     }
 }
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
@@ -18,7 +18,11 @@
         <div class="app u-mb-large">
           <h1 class="app__name">TODO</h1>
           <div class="app__mode">
-            <img src="images/icon-sun.svg" alt="" class="app__icon-sun">
+            <input type="checkbox" name="theme" id="app__current-theme" class="app__checkbox--input">
+            <label for="app__current-theme" class="app__theme">
+                <img src="images/icon-sun.svg" alt="" class="app__icon-sun">
+            </label>
+            <!-- <img src="images/icon-sun.svg" alt="" class="app__icon-sun"> -->
           </div>
         </div>
 
@@ -29,9 +33,10 @@
               <img src="images/icon-check.svg" alt="" class="field__icon field__icon--check">
             </span>
           </label>
-          <div class="field__content">
-            Currently typing
-          </div>
+          <!-- <div class="field__content"> -->
+            <!-- Currently typing -->
+            <input type="text" class="field__content--input" name="newTask" placeholder="Create a new todo..">
+          <!-- </div> -->
         </div>
 
       <div class="list">
@@ -126,6 +131,7 @@
 
       </div>
     </header>
-  
+    
+    <script src="javascript/script.js"></script>
   </body>
 </html>
