@@ -257,17 +257,26 @@ main, .discrete{
 
     }
 
-    &__left:hover, &__delete:hover{
-        color: var(--hover-color);
-        cursor: pointer;
-    }
-
     &__delete{
+        
+        &:hover{
+            color: var(--hover-color);
+            cursor: pointer;
+        }
+
         @include respond(phone){
             justify-self: end;
         }
     }
 
+}
+
+.btn{
+    outline: none;
+    background-color: transparent;
+    color: currentColor;
+    border: none;
+    font-family: inherit;
 }
 
 .items > .items__tab{

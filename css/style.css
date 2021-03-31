@@ -163,12 +163,19 @@ main, .discrete {
     .items__tab > *:hover {
       color: var(--hover-color);
       cursor: pointer; }
-  .items__left:hover, .items__delete:hover {
+  .items__delete:hover {
     color: var(--hover-color);
     cursor: pointer; }
   @media only screen and (max-width: 600px) {
     .items__delete {
       justify-self: end; } }
+
+.btn {
+  outline: none;
+  background-color: transparent;
+  color: currentColor;
+  border: none;
+  font-family: inherit; }
 
 @media only screen and (max-width: 600px) {
   .items > .items__tab {

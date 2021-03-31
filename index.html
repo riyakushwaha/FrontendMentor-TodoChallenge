@@ -33,17 +33,15 @@
               <img src="images/icon-check.svg" alt="" class="field__icon field__icon--check">
             </span>
           </label>
-          <!-- <div class="field__content"> -->
-            <!-- Currently typing -->
             <input type="text" class="field__content--input" name="newTask" placeholder="Create a new todo..">
-          <!-- </div> -->
         </div>
 
-        <main>
+      <main>
       <div class="list">
+        <!-- 
         <div class="field ">
-          <input type="checkbox" name="task" id="task--1" class="field__checkbox--input">
-          <label for="task--1" class="field__label">
+          <input type="checkbox" name="task" id="task--11" class="field__checkbox--input">
+          <label for="task--11" class="field__label">
             <span class="field__checkbox">
               <img src="images/icon-check.svg" alt="" class="field__icon field__icon--check">
             </span>
@@ -55,8 +53,8 @@
         </div>
 
         <div class="field ">
-          <input type="checkbox" name="task" id="task--2" class="field__checkbox--input">
-          <label for="task--2" class="field__label">
+          <input type="checkbox" name="task" id="task--12" class="field__checkbox--input">
+          <label for="task--12" class="field__label">
             <span class="field__checkbox">
               <img src="images/icon-check.svg" alt="" class="field__icon field__icon--check">
             </span>
@@ -92,7 +90,7 @@
           </div>
           <img src="images/icon-cross.svg" class="field__icon field__icon--cross">
         </div>
-
+        
         <div class="field ">
           <input type="checkbox" name="task" id="task--5" class="field__checkbox--input">
           <label for="task--5" class="field__label">
@@ -104,33 +102,33 @@
             Complete Todo App on Frontend Mentor
           </div>
           <img src="images/icon-cross.svg" class="field__icon field__icon--cross">
-        </div>
+        </div> -->
         
       </div>
+      <!-- list end -->
 
       <div class="field items">
         <div class="items__left">
-          5 Items Left
+          <span class="left">5</span>
+          Items Left
         </div>
         <div class="items__tab">
-          <div class="items__tab--1 active">All</div>
-          <div class="items__tab--2">Active</div>
-          <div class="items__tab--3">Completed</div>
+          <button class="btn items__tab--1 active">All</button>
+          <button class="btn items__tab--2">Active</button>
+          <button class="btn items__tab--3">Completed</button>
         </div>
-        <div class="items__delete">
+        <button class="btn items__delete">
           Clear Completed
-        </div>
+        </button>
       </div>
-
-      
 
     </main>
 
     <div class="field discrete">
       <div class="items__tab">
-        <div class="items__tab--1 active">All</div>
-        <div class="items__tab--2">Active</div>
-        <div class="items__tab--3">Completed</div>
+        <button class="btn items__tab--1 active">All</button>
+        <button class="btn items__tab--2">Active</button>
+        <button class="btn items__tab--3">Completed</button>
       </div>
     </div>
 
@@ -143,7 +141,7 @@
 
 
 
-      </div>
+      <!-- </div> -->
     </header>
     
     <script src="javascript/script.js"></script>
