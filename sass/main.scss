@@ -14,6 +14,15 @@
 // $color-dark-Grayish-Blue: hsl(236, 9%, 61%);
 // $color-very-Dark-Grayish-Blue: hsl(235, 19%, 35%);
 
+// MEDIA Query
+@mixin respond($breakpoint){
+    @if $breakpoint == phone{
+        @media only screen and (max-width: 600px){
+            @content;
+        }
+    }
+}
+
 // UTILITY CLASSES
 .u-mb-large{
     margin-bottom: 4rem;
@@ -31,11 +40,14 @@
 html{
     box-sizing: border-box;
     font-size: 62.5%; // 1rem = 10px   
+
+    @include respond(phone){font-size: 50%;}
 }
 
 html[data-theme="light"]{
     // VARIABLES - Light Theme
     --bg-image: url(../images/bg-desktop-light.jpg);
+    --bg-image-mobile: url(../images/bg-mobile-light.jpg);
     --field-color: hsl(0, 0%, 98%); // $color-very-Light-Gray;
 
     --bg-color: hsl(236, 33%, 92%); // $color-very-Light-Grayish-Blue;
@@ -49,6 +61,7 @@ html[data-theme="dark"]{
 
     // Variables: Dark Theme
     --bg-image: url(../images/bg-desktop-dark.jpg);
+    --bg-image-mobile: url(../images/bg-mobile-dark.jpg);
     --bg-color: hsl(235, 21%, 11%); //$color-dark-blue
 
     --field-color: hsl(235, 24%, 19%); // $color-desaturated-blue;
@@ -67,20 +80,29 @@ body{
 
 .header{
     width: 100vw;
-    height: 20vw;
+    height: 18vw;
     background-image: var(--bg-image);
     background-size: cover;
     position: absolute;
     top: 0;
     z-index: -10;
+
+    @include respond(phone){
+        background-image: var(--bg-image-mobile);
+        height: 35vh;
+    }
+
 }
 
 .container{
-    margin: 10rem auto;
-    background-color: transparent;
-    width: 33%; 
-    position: relative;
-    z-index: 10;
+    margin: 8.5rem auto;
+    // background-color: transparent;
+    max-width: 33%; 
+
+    @include respond(phone){
+        max-width: 300px; 
+        min-width: 85%;
+    }
 }
 
 .app{
@@ -103,7 +125,7 @@ body{
     &__text{
         text-align: center;
         font-size: 1.5rem;
-        margin: 5rem auto;
+        margin: 3rem auto;
         color: var(--text-color-dark);
     }
 
@@ -120,6 +142,10 @@ body{
     padding: 2.25rem;
     position: relative;
     z-index: 12;
+
+    @include respond(phone){
+        padding: 2.25rem 1rem 2.25rem 0;
+    }
 
     &__checkbox--input{
         opacity: 0;
@@ -143,7 +169,7 @@ body{
     }
 
     &__icon{
-        display: block;
+        // display: none;
         opacity: 0;
     }
 
@@ -190,8 +216,13 @@ body{
     border-top-right-radius: .5rem;
 }
 
-.list{
+
+
+main, .discrete{
     box-shadow: 0 2rem 5rem rgba(0,0,0,.4);
+}
+
+.list{
 
     & > .field{
         border-bottom: 2px solid hsl(234, 11%, 52%);
@@ -199,24 +230,29 @@ body{
 }
 
 .items{
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-column-gap: 2rem;
     border-bottom-left-radius: .5rem;
     border-bottom-right-radius: .5rem;
     font-size: 1.5rem;
     color: var(--text-color-dark);
 
+
+    @include respond(phone){
+        padding: 2.25rem 1rem;
+        grid-template-columns: 1fr 1fr;
+    }
+
     &__tab{
         display: flex;
         justify-content: space-evenly;
+        flex: 1;
+        padding: 0 1rem;
 
         & > *:hover{
             color: var(--hover-color);
             cursor: pointer;
-        }
-
-        &--2{
-            margin: 0 2rem;
         }
 
     }
@@ -225,9 +261,35 @@ body{
         color: var(--hover-color);
         cursor: pointer;
     }
+
+    &__delete{
+        @include respond(phone){
+            justify-self: end;
+        }
+    }
+
+}
+
+.items > .items__tab{
+    @include respond(phone){
+        display: none;
+    }
+}
+
+.discrete{
+    border-radius: .5rem;
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    color: var(--text-color-dark);
+    display: none;
+
+    @include respond(phone){
+        display: block;
+    }
 }
 
 //Javascript helper
 .active{
     color: rgba(0, 0, 255, 0.664);
 }
+
