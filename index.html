@@ -20,23 +20,25 @@
           <div class="app__mode">
             <input type="checkbox" name="theme" id="app__current-theme" class="app__checkbox--input">
             <label for="app__current-theme" class="app__theme">
-                <img src="images/icon-sun.svg" alt="" class="app__icon-sun">
+                <img src="images/icon-sun.svg" alt="theme_image" class="app__icon-sun">
             </label>
           </div>
         </div>
 
       
         <div class="app__input-field field">
-          <input type="checkbox" name="task" id="task--current" class="field__checkbox--input">
+          <!-- <input type="checkbox" name="task" id="task--current" class="field__checkbox--input">
           <label for="task--current" class="field__label">
             <span class="field__checkbox">
-              <img src="images/icon-check.svg" alt="" class="field__icon field__icon--check">
+              <img src="images/icon-check.svg" alt="check_image" class="field__icon field__icon--check">
             </span>
-          </label>
-            <input type="text" class="field__content--input" name="newTask" placeholder="Create a new todo..">
+          </label> -->
+            <div class="circle"></div>
+            <input type="text" class="field__content--input" name="newTask" id="newtsk" placeholder="Create a new todo..">
+            <label for="newtsk" ></label>
         </div>
 
-      <main>
+      <div class="main">
       <div class="list">
         <!-- 
         <div class="field ">
@@ -124,7 +126,7 @@
         </button>
       </div>
 
-    </main>
+    </div>
 
     <div class="field discrete">
       <div class="items__tab">

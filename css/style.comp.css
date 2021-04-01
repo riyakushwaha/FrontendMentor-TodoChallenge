@@ -86,7 +86,7 @@ body {
   display: flex;
   align-items: center;
   background-color: var(--field-color);
-  padding: 2.20rem 2.20rem 2.20rem 1.25rem;
+  padding: 2.25rem;
   position: relative;
   z-index: 12; }
   @media only screen and (max-width: 600px) {
@@ -149,19 +149,11 @@ body {
   .field:hover > .cross > img {
     opacity: 1; }
 
-.circle {
-  height: 2.5rem;
-  width: 2.75rem;
-  display: block;
-  border: 2px solid #4d5066;
-  border-radius: 101%;
-  margin-left: 1.25rem; }
-
 .field:first-child {
   border-top-left-radius: .5rem;
   border-top-right-radius: .5rem; }
 
-.main, .discrete {
+main, .discrete {
   box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.4); }
 
 .list > .field {
@@ -174,8 +166,7 @@ body {
   border-bottom-left-radius: .5rem;
   border-bottom-right-radius: .5rem;
   font-size: 1.5rem;
-  color: var(--text-color-dark);
-  padding-left: 3rem; }
+  color: var(--text-color-dark); }
   @media only screen and (max-width: 600px) {
     .items {
       padding: 2.25rem 1rem;

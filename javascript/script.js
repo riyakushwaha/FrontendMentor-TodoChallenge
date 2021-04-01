@@ -72,14 +72,14 @@ function showTask(taskName, index){
   <input type="checkbox" name="task" data-index="${(index)}" id="data-${(index+1)}" class="field__checkbox--input">
   <label for="data-${(index+1)}" class="field__label">
     <span class="field__checkbox">
-      <img src="images/icon-check.svg" alt="" class="field__icon field__icon--check">
+      <img src="images/icon-check.svg" alt="check_image" class="field__icon field__icon--check">
     </span>
   </label>
   <div class="field__content">
     ${taskName}
   </div>
   <a href="#" class="cross">
-          <img src="images/icon-cross.svg" class="field__icon field__icon--cross">
+          <img src="images/icon-cross.svg" alt="cross__image" class="field__icon field__icon--cross">
         </a>
   </div> `;
   }else{
@@ -87,14 +87,14 @@ function showTask(taskName, index){
     <input type="checkbox" name="task" data-index="${(index)}" id="data-${(index+1)}"  class="field__checkbox--input">
     <label for="data-${(index+1)}" class="field__label">
       <span class="field__checked--checkbox">
-        <img src="images/icon-check.svg" alt="" class="field__icon field__icon--check-checked">
+        <img src="images/icon-check.svg" alt="check_image" class="field__icon field__icon--check-checked">
       </span>
     </label>
     <div class="field__content field__content--checked">
     ${taskName}
     </div>
     <a href="#" class="cross">
-    <img src="images/icon-cross.svg" class="field__icon field__icon--cross">
+    <img src="images/icon-cross.svg" alt="cross__image" class="field__icon field__icon--cross">
   </a>
   </div> `;
   }
