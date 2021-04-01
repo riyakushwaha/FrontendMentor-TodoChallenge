@@ -14,6 +14,45 @@ mode_checkbox.addEventListener("change", (event) =>{
       }
 });
 
+let phone = document.documentElement.clientWidth < 600 ? true : false;
+changeView();
+
+// window.addEventListener("resize", function(){
+//   if(document.documentElement.clientWidth < 600){
+//     phone = true;
+//   }else{
+//     phone = false;
+//   }
+//   changeView();
+// });
+
+
+function changeView(){
+if(phone){
+  const tabs = `<div class="items__tab">
+    <button class="btn btn--tab items__tab--1 active">All</button>
+    <button class="btn btn--tab items__tab--2">Active</button>
+    <button class="btn btn--tab items__tab--3">Completed</button>
+  </div>`;
+  document.querySelector(".discrete").innerHTML = "";
+  document.querySelector(".items").children[1].innerHTML = "";
+  document.querySelector(".discrete").insertAdjacentHTML("afterbegin", tabs);
+}
+else{
+
+  const html = `
+      <button class="btn btn--tab items__tab--1 active">All</button>
+      <button class="btn btn--tab items__tab--2">Active</button>
+      <button class="btn btn--tab items__tab--3">Completed</button>
+    `;
+
+    document.querySelector(".discrete").innerHTML = "";
+    document.querySelector(".items").children[1].innerHTML = "";
+    document.querySelector(".items").children[1].insertAdjacentHTML("afterbegin", html);
+}
+
+}
+
 ////////////////////////////////////////////Functionality of Application
 
 const inputTask = document.querySelector(".field__content--input");
@@ -50,9 +89,9 @@ class TodoApp{
     constructor(){
         //event-listeners
         inputTask.addEventListener("keyup", this.addNewTask.bind(this));
-        buttonCompleted.addEventListener("click", this.showCompletedTasks.bind(this));
-        buttonAll.addEventListener("click", this.showAllTasks.bind(this));
-        buttonActive.addEventListener("click", this.showActiveTasks.bind(this));
+        buttonCompleted?.addEventListener("click", this.showCompletedTasks.bind(this));
+        buttonAll?.addEventListener("click", this.showAllTasks.bind(this));
+        buttonActive?.addEventListener("click", this.showActiveTasks.bind(this));
         buttonClearCompleted.addEventListener("click", this.deleteCompletedTasks.bind(this));
         containerList.addEventListener("click", this.deleteCrossClickedTask.bind(this));
         containerList.addEventListener("change", this.changeTaskStatus.bind(this));
