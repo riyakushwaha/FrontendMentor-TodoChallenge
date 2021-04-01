@@ -26,25 +26,24 @@ const itemLeft = document.querySelector(".left");
 const buttonTabs = document.querySelectorAll(".btn--tab");
 
 class TodoApp{
-    tasks = [];
-    // tasks = [
-    //     {
-    //       name: "Jog around the park 3x",
-    //       status: 1
-    //     },
-    //     {
-    //       name: "10 minutes meditation",
-    //       status: 0
-    //     },
-    //     {
-    //       name: "Read for 1 hour",
-    //       status: 0
-    //     },
-    //     {
-    //       name: "Complete Todo App on Frontend Mentor",
-    //       status: 1
-    //     }
-    //   ];
+    tasks = [
+        {
+          name: "Jog around the park 3x",
+          status: 1
+        },
+        {
+          name: "10 minutes meditation",
+          status: 0
+        },
+        {
+          name: "Read for 1 hour",
+          status: 0
+        },
+        {
+          name: "Complete Todo App on Frontend Mentor",
+          status: 1
+        }
+      ];
     
     dragSrcEl = "";
 
