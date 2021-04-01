@@ -100,7 +100,6 @@ body {
     display: block;
     border: 2px solid #4d5066;
     border-radius: 50%;
-    margin-right: 2rem;
     display: flex;
     justify-content: center;
     align-items: center; }
@@ -117,9 +116,26 @@ body {
   .field__checkbox--input:checked ~ .field__content {
     text-decoration: line-through;
     color: var(--text-color-dark); }
+  .field__checked--checkbox {
+    height: 2.5rem;
+    width: 2.5rem;
+    display: block;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(#57ddff, #c058f3); }
+  .field__icon--check-checked {
+    opacity: 1; }
+  .field__content--checked {
+    text-decoration: line-through;
+    color: var(--text-color-dark); }
   .field__content {
-    margin-right: auto; }
+    margin-right: auto;
+    margin-left: 1.5rem; }
     .field__content--input {
+      margin-left: 1.5rem;
       background-color: transparent;
       border: none;
       width: 100%;
@@ -130,7 +146,7 @@ body {
       color: var(--text-color-dark); }
       .field__content--input:focus {
         outline: none; }
-  .field:hover > img {
+  .field:hover > .cross > img {
     opacity: 1; }
 
 .field:first-child {
@@ -160,7 +176,7 @@ main, .discrete {
     justify-content: space-evenly;
     flex: 1;
     padding: 0 1rem; }
-    .items__tab > *:hover {
+    .items__tab > *:not(.active):hover {
       color: var(--hover-color);
       cursor: pointer; }
   .items__delete:hover {
@@ -193,3 +209,12 @@ main, .discrete {
 
 .active {
   color: rgba(0, 0, 255, 0.664); }
+
+[draggable] {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  /* Required to make elements draggable in old WebKit */
+  -khtml-user-drag: element;
+  -webkit-user-drag: element; }
