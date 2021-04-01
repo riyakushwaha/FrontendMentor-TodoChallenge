@@ -11,7 +11,7 @@ mode_checkbox.addEventListener("change", (event) =>{
       }
 });
 
-// Functionality of ToDo Application
+////////////////////////////////////////////Functionality of ToDo Application
 
 
 const inputTask = document.querySelector(".field__content--input");
@@ -22,8 +22,6 @@ const buttonCompleted = document.querySelector(".items__tab--3");
 const buttonClearCompleted = document.querySelector(".items__delete");
 const itemLeft = document.querySelector(".left");
 const buttonTabs = document.querySelectorAll(".btn--tab");
-
-// let tasks = [];
 
 let tasks = [
   {
@@ -44,8 +42,7 @@ let tasks = [
   }
 ];
 
-//////////////////////////////////////////////////////////
-////////// Functions
+//////////////////////////////////////////////// Functions
 
 function removeActiveFromAll(){
   buttonTabs.forEach(function(btn){
@@ -60,18 +57,15 @@ function swapArrayElement(src, dest){
 }
 
 function showAllTasks(){
-
 containerList.innerHTML = "";
 removeActiveFromAll();
 buttonAll.classList.add("active");
-
 tasks.forEach(function(item, index){
   showTask(item.name, index);
 });
 }
 
 function showTask(taskName, index){
-
   let html = "";
   if(tasks[index].status === 0){
   html = `<div class="field" draggable="true">
@@ -104,7 +98,6 @@ function showTask(taskName, index){
   </a>
   </div> `;
   }
-
   containerList.insertAdjacentHTML('afterbegin', html);
 }
 
@@ -133,11 +126,11 @@ function reset(){
   localStorage.removeItem("tasks");
 }
 
-// window.addEventListener("beforeunload", function(e){
-//   setLocalStorage();
-//   e.preventDefault(); //per the standard
-//   e.returnValue = ''; //required for Chrome
-// });
+window.addEventListener("beforeunload", function(e){
+  setLocalStorage();
+  e.preventDefault(); //per the standard
+  e.returnValue = ''; //required for Chrome
+});
 
 /////////////////
 // Add a task
@@ -248,12 +241,6 @@ containerList.addEventListener('drop', handleDrop);
 
 function handleDragOver(e){
   e.preventDefault();
-
-  // if(typeof e.target.closest(".field") === 'undefined') return;
-
-  // const ele = e.target.closest(".field");
-  // ele.dataTransfer.dropEffect = "move";
-
   try{
     const ele = e.target.closest(".field");
   ele.dataTransfer.dropEffect = "move";
@@ -281,7 +268,6 @@ function handleDrop(e) {
 }
 
 function handleDragStart(e) {
-
 
   if(!e.target.closest(".field")) return;
 
