@@ -56,7 +56,7 @@ class TodoApp{
         buttonClearCompleted.addEventListener("click", this.deleteCompletedTasks.bind(this));
         containerList.addEventListener("click", this.deleteCrossClickedTask.bind(this));
         containerList.addEventListener("change", this.changeTaskStatus.bind(this));
-        window.addEventListener("beforeunload", this.storeTasksInStorage.bind(this));
+        // window.addEventListener("beforeunload", this.storeTasksInStorage.bind(this));
 
         // drag and drop functionality event listeners
         containerList.addEventListener('dragstart', this.handleDragStart.bind(this));
@@ -66,7 +66,7 @@ class TodoApp{
         // initial function calls
         this.getLocalStorage();
         if(this.tasks.length > 0){  
-            this.showAllTasks();
+            this.renderAllTasks();
             this.updateLeftItems();
         }
     }
@@ -107,10 +107,17 @@ class TodoApp{
         containerList.insertAdjacentHTML('afterbegin', html);
     }
 
+    renderAllTasks(e){
+      containerList.innerHTML = "";
+      this.tasks.forEach(function(item, index){
+        this.showTask(item.name, index);
+      }, this);
+    }
+
     showAllTasks(e){
         containerList.innerHTML = "";
         this.removeActiveFromAll();
-        e?.target.classList.add("active");
+        buttonAll.classList.add("active");
         this.tasks.forEach(function(item, index){
           this.showTask(item.name, index);
         }, this);
@@ -165,7 +172,7 @@ class TodoApp{
         const taskIndex = e.target.closest(".field").children[0].dataset.index;
         this.tasks[taskIndex].status = this.tasks[taskIndex].status === 1 ? 0 : 1;
         this.updateLeftItems();
-        this.showAllTasks();
+        this.renderAllTasks()
         }catch(err){
             console.error(err);
         }
