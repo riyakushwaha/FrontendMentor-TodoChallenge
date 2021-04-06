@@ -17,16 +17,6 @@ mode_checkbox.addEventListener("change", (event) =>{
 let phone = document.documentElement.clientWidth < 600 ? true : false;
 changeView();
 
-// window.addEventListener("resize", function(){
-//   if(document.documentElement.clientWidth < 600){
-//     phone = true;
-//   }else{
-//     phone = false;
-//   }
-//   changeView();
-// });
-
-
 function changeView(){
 if(phone){
   const tabs = `<div class="items__tab">
@@ -95,7 +85,7 @@ class TodoApp{
         buttonClearCompleted.addEventListener("click", this.deleteCompletedTasks.bind(this));
         containerList.addEventListener("click", this.deleteCrossClickedTask.bind(this));
         containerList.addEventListener("change", this.changeTaskStatus.bind(this));
-        // window.addEventListener("beforeunload", this.storeTasksInStorage.bind(this));
+        window.addEventListener("beforeunload", this.storeTasksInStorage.bind(this));
 
         // drag and drop functionality event listeners
         containerList.addEventListener('dragstart', this.handleDragStart.bind(this));
