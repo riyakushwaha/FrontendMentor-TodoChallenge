@@ -6,8 +6,9 @@ This is a solution to the [Frontend Mentor - Todo app](https://www.frontendmento
 
 - [Overview](#overview)
   - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
   - [Links](#links)
+  - [Screenshot](#screenshot)
+
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
@@ -30,15 +31,14 @@ Users should be able to:
 - ✅ Toggle light and dark mode
 - ✅ **Bonus**: Drag and drop to reorder items on the list 🎉
 
-### Screenshot
-
-![](./screenshot.jpg)
-
-
 ### Links
 
 - [Solution URL](https://www.frontendmentor.io/solutions/flexbox-grid-saas-AEygVp0mZ)
 - [Live Site URL](https://riyakushwaha.github.io/FrontendMentor-TodoChallenge/)
+
+### Screenshot
+<img src="images/Todo1.png">
+<img src="images/Todo2.png">
 
 ## My process
 
